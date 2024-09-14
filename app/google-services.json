@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "534319833328",
+    "project_id": "wisescan-bbbbb",
+    "storage_bucket": "wisescan-bbbbb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534319833328:android:c2daf18e36bb0d00dbe235",
+        "android_client_info": {
+          "package_name": "com.example.wisescan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "534319833328-a1l5lrft6d6mjvol75nr7je1on1damqm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wisescan",
+            "certificate_hash": "61a277713fb08fa829e33c8d5c11f23fe1cff108"
+          }
+        },
+        {
+          "client_id": "534319833328-pi1sgq90uf2q131a17mbmp8imc11moav.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtlHBngqZi6HU369EOerMOhKb-AAchBng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "534319833328-pi1sgq90uf2q131a17mbmp8imc11moav.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
