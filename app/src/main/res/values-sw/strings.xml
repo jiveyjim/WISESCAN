@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WiseScan</string>
+    <string name="change_language">Badilisha Lugha</string>
+    <string name="dark_mode">Hali ya Giza</string>
+    <string name="account">Akaunti</string>
+    <string name="about">Kuhusu</string>
+    <string name="exit">Toka</string>
+    <string name="rate_app">Pima Programu</string>
+    <string name="select_language">Chagua Lugha</string>
+</resources>

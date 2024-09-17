@@ -16,9 +16,19 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.wisescan.viewmodel.ScanViewModel
+
+// Mock implementation of ScanViewModel
+class MockScanViewModel : ScanViewModel() {
+    override fun downloadImage(fileName: String, callback: (Bitmap?) -> Unit) {
+        // Generate a placeholder bitmap for the preview
+        callback(Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888))
+    }
+}
+
 
 @Composable
 fun ImageManagementScreen(scanViewModel: ScanViewModel = viewModel()) {
@@ -49,3 +59,11 @@ fun ImageManagementScreen(scanViewModel: ScanViewModel = viewModel()) {
         }
     }
 }
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewImageManagementScreen() {
+    // Use the mock view model for preview
+    ImageManagementScreen(scanViewModel = MockScanViewModel())
+}
+

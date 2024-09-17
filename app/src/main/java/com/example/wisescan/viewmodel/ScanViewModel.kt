@@ -16,7 +16,7 @@ import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import java.io.ByteArrayOutputStream
 import java.util.UUID
 
-class ScanViewModel : ViewModel() {
+open class ScanViewModel : ViewModel() {
     private val storage = FirebaseStorage.getInstance()
     private val _scannedText = mutableStateOf("")
     val scannedText: State<String> = _scannedText
@@ -38,7 +38,7 @@ class ScanViewModel : ViewModel() {
             }
     }
 
-    fun downloadImage(fileName: String, onImageDownloaded: (Bitmap?) -> Unit) {
+    open fun downloadImage(fileName: String, onImageDownloaded: (Bitmap?) -> Unit) {
         val storageRef = storage.reference.child("scanned_documents/$fileName")
 
         storageRef.getBytes(Long.MAX_VALUE)
