@@ -47,7 +47,6 @@ fun AppNavHost(
     themeViewModel: ThemeViewModel
 ) {
     val recognizedText = remember { mutableStateOf("") }
-
     NavHost(
         navController = navController,
         startDestination = startDestination,
@@ -70,7 +69,6 @@ fun AppNavHost(
         }
         composable(ACCOUNT_SETTINGS) {
             val accountViewModel: AccountViewModel = viewModel()
-
             AccountSettingsScreen(navController = navController, viewModel = accountViewModel)
         }
         composable(ABOUT) {
@@ -79,7 +77,6 @@ fun AppNavHost(
         composable(LANGUAGE_SELECT) {
             LanguageSelectScreen(navController = navController, context = LocalContext.current)
         }
-
         composable(PERSONALIZED_ANALYSIS) {
             PersonalizedAnalysisScreen(navController = navController)
         }

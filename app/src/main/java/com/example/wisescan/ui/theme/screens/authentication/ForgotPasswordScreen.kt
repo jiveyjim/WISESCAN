@@ -28,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth
 fun ForgotPasswordScreen(navController: NavHostController) {
     var email by remember { mutableStateOf("") }
     var emailSent by remember { mutableStateOf(false) }
+    var errorMessage by remember { mutableStateOf<String?>(null) }
 
     Column(
         modifier = Modifier
@@ -44,17 +45,16 @@ fun ForgotPasswordScreen(navController: NavHostController) {
         )
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = {
-            // Call Firebase function to send password reset email
             FirebaseAuth.getInstance().sendPasswordResetEmail(email)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         emailSent = true
                     } else {
-                        // Handle error
+                        errorMessage = task.exception?.message
                     }
                 }
         },modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            Text("Send Reset Code")
+            Text("Send Reset Link")
         }
         if (emailSent) {
             Text("Reset link sent to $email. Please check your email and come back to log in with your new password")
@@ -91,7 +91,7 @@ fun ForgotScreenDemo(){
         )
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = { /*TODO*/ },modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            Text("Send Reset Code")
+            Text("Send Reset Link")
         }
         Spacer(modifier = Modifier.height(30.dp))
         Button(onClick = { },modifier = Modifier.align(Alignment.CenterHorizontally) ){

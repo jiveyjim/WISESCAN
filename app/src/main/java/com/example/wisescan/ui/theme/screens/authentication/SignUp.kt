@@ -70,7 +70,7 @@ fun SignUpScreen(navController: NavHostController) {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        // Get user ID and save user data to Firestore
+
                         val userId = auth.currentUser?.uid ?: ""
                         val user = hashMapOf(
                             "username" to username,
