@@ -1,3 +1,5 @@
+package com.example.wisescan.ui.theme.screens.authentication
+
 import androidx.compose.foundation.background
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -80,7 +82,7 @@ fun SignUpScreen(navController: NavHostController) {
 
                         firestore.collection("users").document(userId).set(user)
                             .addOnSuccessListener {
-                                navController.navigate("LOGIN")
+                                navController.navigate(LOGIN)
                             }
                             .addOnFailureListener {
                                 errorMessage = it.message
@@ -103,62 +105,3 @@ fun SignUpScreen(navController: NavHostController) {
     }
 }
 
-@Composable
-@Preview(showBackground = true)
-fun SignUpScreenPreview(){
-        SignUpScreenDemo()
-}
-
-@Composable
-fun SignUpScreenDemo() {
-
-    var email by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var username by remember { mutableStateOf("") }
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.LightGray)
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = "WISE SCAN",
-            fontSize = 60.sp,
-            fontWeight = FontWeight.ExtraBold,
-            fontFamily = FontFamily.SansSerif
-        )
-        Text(
-            text = "Scan,Learn,Succeed",
-            fontSize = 30.sp,
-            fontWeight = FontWeight.Bold,
-            fontFamily = FontFamily.Cursive,
-            textAlign = TextAlign.Center
-        )
-        Spacer(modifier = Modifier.height(30.dp))
-        Spacer(modifier = Modifier.height(30.dp))
-        TextField(
-            value = username,
-            onValueChange = { },
-            label = { Text("Username") }
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        TextField(
-            value = email,
-            onValueChange = { },
-            label = { Text("Email") }
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        TextField(
-            value = password,
-            onValueChange = { },
-            label = { Text("Password") },
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        Button(onClick = { /*TODO*/ }) {
-            Text("Sign Up")
-
-        }
-    }
-}

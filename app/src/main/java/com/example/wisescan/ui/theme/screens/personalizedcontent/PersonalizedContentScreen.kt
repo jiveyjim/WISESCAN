@@ -31,7 +31,7 @@ fun PersonalizedContentScreen(navController: NavController) {
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
-            //TopAppBar
+
             TopAppBar(
                 title = { Text(text = "PERSONALIZED CONTENT", color = Color.White) },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(Color.Magenta),
@@ -49,22 +49,22 @@ fun PersonalizedContentScreen(navController: NavController) {
                 },
             )
 
-            //End of TopAppbar
+
 
             Text(text = "Your Personalized Study Materials", style = MaterialTheme.typography.headlineSmall)
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Recommended PDFs
+
             Text(text = "PDF Notes:")
             Text(text = "- Introduction to Calculus.pdf")
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Recommended Videos
+
             Text(text = "Videos:")
             Text(text = "- Video: Understanding Derivatives.mp4")
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Recommended Quizzes
+
             Text(text = "Quizzes:")
             Text(text = "- Quiz: Basic Algebra Concepts")
         }

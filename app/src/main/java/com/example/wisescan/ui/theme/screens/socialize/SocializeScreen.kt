@@ -31,7 +31,6 @@ fun SocializeScreen(navController: NavController) {
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
-            //TopAppBar
             TopAppBar(
                 title = { Text(text = "SOCIALIZE", color = Color.White) },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(Color.Magenta),
@@ -49,18 +48,18 @@ fun SocializeScreen(navController: NavController) {
                 },
             )
 
-            //End of TopAppbar
+
 
             Text(text = "Connect with Peers", style = MaterialTheme.typography.headlineSmall)
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Discussion Forums
+
             Text(text = "Discussion Forums:")
             Text(text = "- Forum: Mathematics 101")
             Text(text = "- Forum: Physics Study Group")
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Peer Matching
+
             Text(text = "Find a Study Buddy:")
             Text(text = "Matched with: John Doe")
             Text(text = "Subject: Algebra")

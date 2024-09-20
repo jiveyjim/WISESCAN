@@ -4,7 +4,6 @@ import android.content.Context
 import org.tensorflow.lite.Interpreter
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
-import java.nio.channels.FileChannel
 import java.io.InputStream
 import java.nio.channels.Channels
 
@@ -12,7 +11,7 @@ class ModelManager(context: Context) {
     private val interpreter: Interpreter
 
     init {
-        val modelPath = "model.tflite" // Ensure this is in assets
+        val modelPath = "model.tflite"
         val assetManager = context.assets
         val modelInputStream = assetManager.open(modelPath)
         val modelByteBuffer = loadModelFile(modelInputStream)
@@ -29,7 +28,7 @@ class ModelManager(context: Context) {
     }
 
     fun analyzeContent(input: ByteBuffer): ByteBuffer {
-        val output = ByteBuffer.allocateDirect(4 * 10) // Adjust size as needed
+        val output = ByteBuffer.allocateDirect(4 * 10)
         output.order(ByteOrder.nativeOrder())
         interpreter.run(input, output)
         return output

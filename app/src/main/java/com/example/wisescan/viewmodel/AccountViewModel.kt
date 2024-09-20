@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 
 class AccountViewModel : ViewModel() {
     var userName by mutableStateOf("")
-    var userEmail by mutableStateOf("")
     var oldPassword by mutableStateOf("")
     var newPassword by mutableStateOf("")
 
@@ -14,12 +13,9 @@ class AccountViewModel : ViewModel() {
         userName = name
     }
 
-    fun updateUserEmail(email: String) {
-        userEmail = email
-    }
 
     fun saveProfileChanges() {
-        // Save the profile changes to the server or database
+
     }
 
     fun updateOldPassword(password: String) {
@@ -31,15 +27,15 @@ class AccountViewModel : ViewModel() {
     }
 
     fun changePassword() {
-        // Change the user's password on the server or database
+
     }
 
     fun deleteAccount() {
-        // Delete the user's account from the server or database
+
     }
 
     fun logout() {
-        // Perform logout, clear user session
+
     }
 }
 

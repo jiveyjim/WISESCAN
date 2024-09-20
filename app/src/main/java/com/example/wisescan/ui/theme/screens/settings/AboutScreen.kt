@@ -21,15 +21,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.wisescan.ThemeViewModel
-import com.example.wisescan.navigation.DASHBOARD
 import com.example.wisescan.navigation.SETTINGS
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AboutScreen(navController: NavHostController,themeViewModel: ThemeViewModel) {
+fun AboutScreen(navController: NavHostController) {
     Column(modifier = Modifier.fillMaxSize()) {
-        // TopAppBar
+
         TopAppBar(
             title = { Text(text = "About WISE SCAN", color = Color.White) },
             colors = TopAppBarDefaults.mediumTopAppBarColors(Color.Magenta),
@@ -45,9 +43,9 @@ fun AboutScreen(navController: NavHostController,themeViewModel: ThemeViewModel)
                 }
             },
         )
-        // End of TopAppBar
 
-        // About Content
+
+
         Column(
             modifier = Modifier
                 .fillMaxWidth()

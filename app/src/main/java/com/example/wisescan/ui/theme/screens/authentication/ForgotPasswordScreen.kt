@@ -66,36 +66,3 @@ fun ForgotPasswordScreen(navController: NavHostController) {
     }
 }
 
-@Composable
-@Preview(showBackground = true)
-fun ForgotPasswordScreenPreview(){
-    ForgotScreenDemo()
-}
-
-@Composable
-fun ForgotScreenDemo(){
-    var email by remember { mutableStateOf("") }
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(27.dp)
-    ) {
-        Text(text = "Forgot Password", fontSize = 24.sp, fontWeight = FontWeight.Bold)
-        Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(
-            value = email,
-            onValueChange = { email = it },
-            label = { Text("Email") },
-            modifier = Modifier.fillMaxWidth()
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = { /*TODO*/ },modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            Text("Send Reset Link")
-        }
-        Spacer(modifier = Modifier.height(30.dp))
-        Button(onClick = { },modifier = Modifier.align(Alignment.CenterHorizontally) ){
-            Text(text = "Login")
-        }
-    }
-}

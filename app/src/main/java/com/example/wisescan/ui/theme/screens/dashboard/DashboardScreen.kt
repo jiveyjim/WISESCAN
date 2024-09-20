@@ -1,19 +1,14 @@
 import android.app.Activity
-import android.content.Context
+
 import android.content.Intent
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Camera
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material.icons.filled.Storage
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -24,17 +19,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.example.wisescan.AppScaffold
 import com.example.wisescan.R
-import com.example.wisescan.navigation.CAPTURE_SCREEN
 import com.example.wisescan.navigation.CAREER_PILOT
-import com.example.wisescan.navigation.COLLECTIVE_ANALYSIS
-import com.example.wisescan.navigation.DASHBOARD
+import com.example.wisescan.navigation.GENERAL_ANALYSIS
 import com.example.wisescan.navigation.PERSONALIZED_ANALYSIS
 import com.example.wisescan.navigation.PERSONALIZED_CONTENT
 import com.example.wisescan.navigation.SETTINGS
@@ -46,7 +37,7 @@ import com.example.wisescan.navigation.TRAIN_AI
 fun DashboardScreen(navController: NavHostController) {
     val activity = LocalContext.current as? Activity
     var showExitDialog by remember { mutableStateOf(false) }
-    val context = LocalContext.current
+    val mContext = LocalContext.current
 
     BackHandler {
         showExitDialog = true
@@ -80,7 +71,7 @@ fun DashboardScreen(navController: NavHostController) {
 
 
         ) {
-            // Add content for the Dashboard
+
 
                 TopAppBar(
                     title = {
@@ -102,7 +93,10 @@ fun DashboardScreen(navController: NavHostController) {
                         }
                     },
                     actions = {
-                        IconButton(onClick = { { shareAppLink(context) }}) {
+                        IconButton(onClick = { val shareIntent=Intent(Intent.ACTION_SEND)
+                            shareIntent.type="text/plain"
+                            shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this is a cool Ai APP to enhance your learning.")
+                            mContext.startActivity(Intent.createChooser(shareIntent, "Share"))}) {
                             Icon(
                                 imageVector = Icons.Filled.Share,
                                 contentDescription = "Share",
@@ -167,17 +161,17 @@ fun DashboardScreen(navController: NavHostController) {
                     .fillMaxWidth()
 
             ) {
-                // First Row
+
                 Row(
                     modifier = Modifier
                         .height(200.dp)
                         .fillMaxWidth()
-                        .padding(vertical = 8.dp), // Add vertical padding between rows
+                        .padding(vertical = 8.dp),
                     horizontalArrangement = Arrangement.SpaceEvenly,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Card(
-                        onClick = { navController.navigate(COLLECTIVE_ANALYSIS)},
+                        onClick = { navController.navigate(GENERAL_ANALYSIS)},
                         modifier = Modifier
                             .width(170.dp)
                             .height(170.dp)
@@ -247,7 +241,7 @@ fun DashboardScreen(navController: NavHostController) {
                     }
                 }
 
-                // Second Row
+
                 Row(
                     modifier = Modifier
                         .height(170.dp) // Adjust height to match the first row
@@ -332,21 +326,6 @@ fun DashboardScreen(navController: NavHostController) {
 
         }
     }
-}
-
-private fun shareAppLink(context: Context) {
-    // URL or link to share
-    val appLink = "https://play.google.com/store/apps/details?id=${context.packageName}"
-
-    // Create an Intent to share content
-    val shareIntent = Intent().apply {
-        action = Intent.ACTION_SEND
-        putExtra(Intent.EXTRA_TEXT, "Check out this awesome app: $appLink")
-        type = "text/plain"
-    }
-
-    // Start the share intent
-    context.startActivity(Intent.createChooser(shareIntent, "Share via"))
 }
 
 

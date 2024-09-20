@@ -1,3 +1,5 @@
+package com.example.wisescan.ui.theme.screens.authentication
+
 import androidx.compose.foundation.background
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -13,7 +15,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.wisescan.navigation.DASHBOARD
 import com.example.wisescan.navigation.FORGOT_PASSWORD
+import com.example.wisescan.navigation.LOGIN
 import com.example.wisescan.navigation.SIGNUP
 import com.google.firebase.auth.FirebaseAuth
 
@@ -63,8 +67,8 @@ fun LoginScreen(navController: NavHostController) {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        navController.navigate("dashboard") {
-                            popUpTo("login") { inclusive = true }
+                        navController.navigate(DASHBOARD) {
+                            popUpTo(LOGIN) { inclusive = true }
                         }
                     } else {
                         errorMessage = task.exception?.message
@@ -86,62 +90,4 @@ fun LoginScreen(navController: NavHostController) {
 
     }
 }
-
-@Composable
-@Preview(showBackground = true)
-fun LoginScreenPreview(){
-        LoginScreenDemo()
-}
-
-@Composable
-fun LoginScreenDemo(){
-    var email by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    Column (modifier = Modifier
-        .fillMaxSize()
-        .background(Color.LightGray)
-        .padding(25.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally){
-        Text(
-            text = "WISE SCAN",
-            fontSize = 60.sp,
-            fontWeight = FontWeight.ExtraBold,
-            fontFamily = FontFamily.SansSerif
-        )
-        Text(
-            text = "Scan,Learn,Succeed",
-            fontSize = 30.sp,
-            fontWeight = FontWeight.Bold,
-            fontFamily = FontFamily.Cursive,
-            textAlign = TextAlign.Center
-        )
-         Spacer(modifier = Modifier.height(30.dp))
-        TextField(
-            value = email,
-            onValueChange = { },
-            label = { Text("Email") }
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        TextField(
-            value = password,
-            onValueChange = { },
-            label = { Text("Password") },
-            visualTransformation = PasswordVisualTransformation()
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        Button(onClick = { /*TODO*/ },modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            Text("Login")
-        }
-        Spacer(modifier = Modifier.height(10.dp))
-        TextButton(onClick = { /*TODO*/ }) {
-            Text("Sign Up", color = Color.Blue)
-        }
-        TextButton(onClick = { /*TODO*/ }) {
-            Text(text = "Forgot Password?", color = Color.Blue)
-        }
-    }
-}
-
-
 

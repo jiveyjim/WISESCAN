@@ -31,7 +31,6 @@ fun CareerPilotScreen(navController: NavController) {
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
-            //TopAppBar
             TopAppBar(
                 title = { Text(text = "CAREER PILOT", color = Color.White) },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(Color.Magenta),
@@ -49,18 +48,14 @@ fun CareerPilotScreen(navController: NavController) {
                 },
             )
 
-            //End of TopAppbar
-
             Text(text = "Your Career Pathway", style = MaterialTheme.typography.headlineSmall)
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Suggested career paths
             Text(text = "Based on Your Strengths:")
             Text(text = "1. Data Scientist")
             Text(text = "2. Software Engineer")
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Resources for career guidance
             Text(text = "Resources:")
             Text(text = "- Guide: How to Become a Data Scientist.pdf")
             Text(text = "- Course: Introduction to Programming")

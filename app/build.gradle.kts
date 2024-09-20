@@ -12,6 +12,7 @@ android {
     defaultConfig {
         applicationId = "com.example.wisescan"
         minSdk = 23
+
         //noinspection OldTargetApi
         targetSdk = 34
         versionCode = 1
@@ -63,32 +64,37 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
-    // Firebase dependencies
+
     implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-storage")
-
     implementation ("com.google.firebase:firebase-auth:22.0.0")
     implementation ("com.google.firebase:firebase-firestore:24.5.0")
 
-    // CameraX dependencies
+
     implementation ("androidx.camera:camera-camera2:1.3.4")
     implementation ("androidx.camera:camera-lifecycle:1.3.4")
     implementation ("androidx.camera:camera-view:1.3.4")
     implementation ("androidx.camera:camera-extensions:1.3.4")
 
-    // ML Kit for OCR
+
     implementation ("com.google.mlkit:text-recognition:16.0.1")
 
     implementation ("org.tensorflow:tensorflow-lite:2.11.0")
 
-    // Google Sign-In API
+
     implementation ("com.google.android.gms:play-services-auth:21.2.0")
+
+    implementation ("com.github.chrisbanes:PhotoView:2.3.0")
+    implementation ("com.github.yalantis:ucrop:2.2.6")
+
+
+
 
     implementation("androidx.compose.ui:ui:1.7.1")
     implementation("androidx.compose.material3:material3:1.1.0")
     implementation("androidx.compose.material:material:1.7.1")
-    implementation("androidx.compose.material:material-icons-extended:1.7.1") // Add if needed
+    implementation("androidx.compose.material:material-icons-extended:1.7.1")
     implementation("androidx.navigation:navigation-compose:2.8.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.5")
     implementation("com.google.firebase:firebase-auth-ktx")

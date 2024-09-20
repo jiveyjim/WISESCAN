@@ -24,6 +24,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.example.wisescan.navigation.CAPTURE_SCREEN
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.example.wisescan.navigation.LOGIN
@@ -35,7 +36,6 @@ import com.example.wisescan.ui.theme.WiseScanTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Initialize Firebase
         FirebaseApp.initializeApp(this)
 
         setContent {
@@ -64,14 +64,14 @@ class ThemeViewModel : ViewModel() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun AppScaffold(
     title: String,
     navController: NavController,
     content: @Composable (PaddingValues) -> Unit
 ) {
-    val context = LocalContext.current
+
 
     Scaffold(
         bottomBar = {
@@ -87,7 +87,7 @@ fun AppScaffold(
                     label = { Text("Capture", color = Color.White) },
                     selected = false,
                     onClick = {
-
+                        navController.navigate(CAPTURE_SCREEN)
                     }
                 )
 

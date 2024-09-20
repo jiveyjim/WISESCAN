@@ -42,7 +42,7 @@ fun LanguageSelectScreen(navController: NavHostController, context: Context) {
                     .padding(8.dp)
                     .clickable {
                         setLocale(context, language.code)
-                        // Navigate back or restart the app if necessary
+
                     },
                 fontSize = 18.sp
             )
@@ -58,7 +58,7 @@ fun setLocale(context: Context, languageCode: String) {
     config.setLocale(locale)
     context.resources.updateConfiguration(config, context.resources.displayMetrics)
 
-    // Optional: Restart the activity to apply changes
+
     val intent = context.packageManager.getLaunchIntentForPackage(context.packageName)
     intent?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
     context.startActivity(intent)
